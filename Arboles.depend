@@ -1,0 +1,97 @@
+# depslib dependency file v1.0
+1408786412 source:c:\users\erick\desktop\asuntos personales\proyecto\arboles\src\main.cpp
+	"main.h"
+	<SFML/Graphics.hpp>
+
+1408786393 c:\users\erick\desktop\asuntos personales\proyecto\arboles\include\main.h
+
+1410809677 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\main.cpp
+	"main.h"
+	"Node.h"
+	<SFML/Graphics.hpp>
+	"Edge.h"
+	"RedBlackTree.h"
+	"Button.h"
+
+1410372982 c:\users\erick\documents\github\arbolesrojosnegros2-3\include\main.h
+	"ScreenMessage.h"
+
+1411080971 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\node.cpp
+	"Node.h"
+	<iostream>
+	<stdlib.h>
+
+1410806930 c:\users\erick\documents\github\arbolesrojosnegros2-3\include\node.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
+	"Edge.h"
+
+1410307850 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\edge.cpp
+	"Edge.h"
+
+1410303334 c:\users\erick\documents\github\arbolesrojosnegros2-3\include\edge.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1410809677 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\redblacktree.cpp
+	"RedBlackTree.h"
+
+1410804257 c:\users\erick\documents\github\arbolesrojosnegros2-3\include\redblacktree.h
+	"Node.h"
+	"ScreenMessage.h"
+
+1410060132 D
+
+1410079049 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\button.cpp
+	"Button.h"
+
+1410079049 c:\users\erick\documents\github\arbolesrojosnegros2-3\include\button.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1410068509 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\textbox.cpp
+	"TextBox.h"
+
+1410069746 c:\users\erick\documents\github\arbolesrojosnegros2-3\include\textbox.h
+
+1409875850 source:c:\users\usuario\documents\analisis de algoritmos\arbolesrojosnegros2-3\src\edge.cpp
+	"Edge.h"
+
+1409875848 c:\users\usuario\documents\analisis de algoritmos\arbolesrojosnegros2-3\include\edge.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1409875850 source:c:\users\usuario\documents\analisis de algoritmos\arbolesrojosnegros2-3\src\main.cpp
+	"main.h"
+	"Node.h"
+	<SFML/Graphics.hpp>
+	"Edge.h"
+	"RedBlackTree.h"
+
+1409875848 c:\users\usuario\documents\analisis de algoritmos\arbolesrojosnegros2-3\include\main.h
+
+1409878838 c:\users\usuario\documents\analisis de algoritmos\arbolesrojosnegros2-3\include\node.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
+
+1409875848 c:\users\usuario\documents\analisis de algoritmos\arbolesrojosnegros2-3\include\redblacktree.h
+	"Node.h"
+
+1409875850 source:c:\users\usuario\documents\analisis de algoritmos\arbolesrojosnegros2-3\src\redblacktree.cpp
+	"RedBlackTree.h"
+
+1409875850 gin/master
+
+1410250709 c:\users\erick\documents\github\arbolesrojosnegros2-3\include\screenmessage.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
+
+1410250725 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\screenmessage.cpp
+	"ScreenMessage.h"
+

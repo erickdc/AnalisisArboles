@@ -255,7 +255,23 @@ void Tree23::dibujarArbol(sf::RenderWindow *window, Node23 *raiz){
     if(altura < 0)
         return;
 
-    if(raiz->hijoIzq){
+    if(altura == 0)
+        raiz->dibujarNodo23(window, raiz->val, -1);
+
+    if(altura > 0){
+
+        if(raiz->hijoIzq != NULL)
+            dibujarArbol(window, raiz->hijoIzq);
+        if(raiz->hijoCen != NULL)
+            dibujarArbol(window, raiz->hijoCen);
+        if(raiz->hijoDer != NULL)
+            dibujarArbol(window, raiz->hijoDer);
+
+        raiz->dibujarNodo23(window, raiz->etiqIzq, raiz->etiqDer);
+    }
+
+
+    /*if(raiz->hijoIzq){
         raiz->dibujarNodo23(window, raiz->etiqIzq, raiz->etiqDer);
         dibujarArbol(window, raiz->hijoIzq);
         dibujarArbol(window, raiz->hijoCen);
@@ -265,7 +281,7 @@ void Tree23::dibujarArbol(sf::RenderWindow *window, Node23 *raiz){
 
     }else{
         raiz->dibujarNodo23(window, raiz->val, -1);
-    }
+    }*/
 }
 
 Tree23::~Tree23(){

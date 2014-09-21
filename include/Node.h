@@ -68,7 +68,6 @@ public:
     Edge *eDerecho;
 
     void dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiquetaD);
-    void dibujarNodo23(sf::RenderWindow *window, int valor);
     void actualizarAltura();
 };
 

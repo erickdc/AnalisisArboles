@@ -149,7 +149,7 @@ void Node23::dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiqueta
     //Inicializa la figura
     rectangulo.setFillColor(sf::Color::Blue);
     rectangulo.setSize(sf::Vector2f(100, 100));
-    rectangulo.setPosition(((screenWidth / 2)), 10);
+    rectangulo.setPosition(((screenWidth / 2)-10), (screenHeight - 738));
 
     //Inicializa la fuente
     fuente.loadFromFile("Marlboro.ttf");
@@ -159,11 +159,23 @@ void Node23::dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiqueta
     itoa(etiquetaI, chString, 10); //stdlib.h
     texto = sf::Text(chString,fuente);
     //texto = sf::Text(":",fuente);
-    texto.setPosition(((screenWidth / 2)-10) + 40,10 + 25);
+    texto.setPosition(((screenWidth / 2) - 8),(screenHeight - 708));
     texto.setColor(sf::Color::White);
 
     window->draw(rectangulo);
     window->draw(texto);
+
+    texto = sf::Text(":", fuente);
+    texto.setPosition(((screenWidth / 2) + 35), (screenHeight - 708));
+
+    window->draw(texto);
+
+    itoa(etiquetaD, chString, 10);
+    texto = sf::Text(chString, fuente);
+    texto.setPosition(((screenWidth / 2) + 60), (screenHeight - 708));
+
+    window->draw(texto);
+
 }
 
 std::string Node::getTipoHijo()

@@ -28,6 +28,7 @@ void Node::initNode( float posX,float posY,int data)
     this->izquierdo=NULL;
     this->value = data;
 }
+
  void Node::initCircle()
  {
     circle.setFillColor(sf::Color::Red);
@@ -35,8 +36,7 @@ void Node::initNode( float posX,float posY,int data)
     circle.setPosition(this->posX,this->posY);
  }
 
-
-void Node::initTextNumber()
+ void Node::initTextNumber()
 {
      char chString[32];
      itoa(this->value, chString, 10); //stdlib.h
@@ -143,6 +143,27 @@ void Node::render( sf::RenderWindow *w)
         eIzquierdo->render(w);
 
         eDerecho->render(w);
+}
+
+void Node23::dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiquetaD){
+    //Inicializa la figura
+    rectangulo.setFillColor(sf::Color::Blue);
+    rectangulo.setSize(sf::Vector2f(100, 100));
+    rectangulo.setPosition(((screenWidth / 2)), 10);
+
+    //Inicializa la fuente
+    fuente.loadFromFile("Marlboro.ttf");
+
+    //Inicializa el texto del nodo
+    char chString[32];
+    itoa(etiquetaI, chString, 10); //stdlib.h
+    texto = sf::Text(chString,fuente);
+    //texto = sf::Text(":",fuente);
+    texto.setPosition(((screenWidth / 2)-10) + 40,10 + 25);
+    texto.setColor(sf::Color::White);
+
+    window->draw(rectangulo);
+    window->draw(texto);
 }
 
 std::string Node::getTipoHijo()

@@ -95,3 +95,66 @@
 1410250725 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\screenmessage.cpp
 	"ScreenMessage.h"
 
+1411230397 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\button.cpp
+	"Button.h"
+
+1411230394 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\button.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1411230397 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\edge.cpp
+	"Edge.h"
+
+1411230394 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\edge.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1411315479 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\main.cpp
+	"main.h"
+	"Node.h"
+	<SFML/Graphics.hpp>
+	"Edge.h"
+	"RedBlackTree.h"
+	"Button.h"
+	"Tree23.h"
+	<iostream>
+
+1411230394 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\main.h
+	"ScreenMessage.h"
+
+1411230394 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\screenmessage.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
+
+1411328687 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\node.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
+	"Edge.h"
+
+1411230394 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\redblacktree.h
+	"Node.h"
+	"ScreenMessage.h"
+
+1411328925 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\node.cpp
+	"Node.h"
+	<iostream>
+	<stdlib.h>
+
+1411230397 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\redblacktree.cpp
+	"RedBlackTree.h"
+
+1411230397 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\screenmessage.cpp
+	"ScreenMessage.h"
+
+1411320018 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\tree23.cpp
+	"Tree23.h"
+	<stdio.h>
+
+1411314956 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\tree23.h
+	"Node.h"
+	<SFML/Graphics.hpp>
+

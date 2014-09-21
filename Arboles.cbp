@@ -38,12 +38,14 @@
 		<Unit filename="include/Node.h" />
 		<Unit filename="include/RedBlackTree.h" />
 		<Unit filename="include/ScreenMessage.h" />
+		<Unit filename="include/Tree23.h" />
 		<Unit filename="include/main.h" />
 		<Unit filename="src/Button.cpp" />
 		<Unit filename="src/Edge.cpp" />
 		<Unit filename="src/Node.cpp" />
 		<Unit filename="src/RedBlackTree.cpp" />
 		<Unit filename="src/ScreenMessage.cpp" />
+		<Unit filename="src/Tree23.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

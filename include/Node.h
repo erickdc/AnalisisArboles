@@ -45,4 +45,31 @@ class Node
 
 };
 
+class Node23{
+public:
+    int val;
+    int etiqIzq;
+    int etiqDer;
+
+    float posX;
+    float posY;
+
+    Node23 *nPadre;
+    Node23 *hijoIzq;
+    Node23 *hijoCen;
+    Node23 *hijoDer;
+
+    sf::RectangleShape rectangulo;
+    sf::Font fuente;
+    sf::Text texto;
+
+    Edge *eIzquierdo;
+    Edge *eCentro;
+    Edge *eDerecho;
+
+    void dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiquetaD);
+    void dibujarNodo23(sf::RenderWindow *window, int valor);
+    void actualizarAltura();
+};
+
 #endif // NODE_H

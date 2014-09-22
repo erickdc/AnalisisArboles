@@ -109,7 +109,7 @@
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 
-1411315479 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\main.cpp
+1411352203 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\main.cpp
 	"main.h"
 	"Node.h"
 	<SFML/Graphics.hpp>
@@ -128,7 +128,7 @@
 	<string>
 	<iostream>
 
-1411337150 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\node.h
+1411371742 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\node.h
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	<string>
@@ -139,10 +139,11 @@
 	"Node.h"
 	"ScreenMessage.h"
 
-1411337146 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\node.cpp
+1411372005 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\node.cpp
 	"Node.h"
 	<iostream>
 	<stdlib.h>
+	<math.h>
 
 1411334394 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\redblacktree.cpp
 	"RedBlackTree.h"
@@ -150,11 +151,12 @@
 1411230397 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\screenmessage.cpp
 	"ScreenMessage.h"
 
-1411337624 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\tree23.cpp
+1411372267 source:c:\users\usuario\documents\analisis de algoritmos\analisisarboles\src\tree23.cpp
 	"Tree23.h"
 	<stdio.h>
+	<math.h>
 
-1411314956 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\tree23.h
+1411370721 c:\users\usuario\documents\analisis de algoritmos\analisisarboles\include\tree23.h
 	"Node.h"
 	<SFML/Graphics.hpp>
 

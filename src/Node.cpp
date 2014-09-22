@@ -1,6 +1,8 @@
 #include "Node.h"
 #include  <iostream> ;
 #include <stdlib.h>
+#include <math.h>
+
 float Node::radius = 50.0f;
 static int screenWidth= 1360;
  static int screenHeight = 768 ;
@@ -65,6 +67,17 @@ void Node::drawEdges()
 
 }
 
+void Node23::dibujarArista(){
+    if(this->hijoIzq != NULL)
+        this->eIzquierdo->setLine(this->posX, this->posY + 98, this->hijoIzq->posX + 50, this->hijoIzq->posY);
+    if(this->hijoDer != NULL)
+        this->eDerecho->setLine(this->posX + 100, this->posY + 100, this->hijoDer->posX + 50, this->hijoDer->posY);
+    if (this->hijoCen != NULL)
+        this->eCentro->setLine(this->posX + 50, this->posY + 100, this->hijoCen->posX + 50, this->hijoCen->posY);
+
+    return;
+}
+
 void Node::setColor (sf::Color color){
     circle.setFillColor(color);
 }
@@ -105,6 +118,33 @@ void Node::actualizarPosXAltura()
         this->posicionX=100;
 
 }
+
+void Node23::StayActualPosition(){
+    std::string tipoHijo = getTipoHijo();
+
+    if(tipoHijo.compare("izquierdo") == 0){
+        this->posX = this->nPadre->posX - 200;
+        this->posY = this->nPadre->posY + 150;
+    }else if(tipoHijo.compare("derecho") == 0){
+        this->posX = this->nPadre->posX + 200;
+        this->posY = this->nPadre->posY + 150;
+    }else if(tipoHijo.compare("centro") == 0){
+        this->posX = this->nPadre->posX;
+        this->posY = this->nPadre->posY + 150;
+    }else{
+        if(this->posX<(screenWidth/2) - 50)
+            this->posX+=0.9f;
+
+         if(this->posY>50.0f)
+            this->posY-=1.0f;
+         else
+            this->posY+=1.0f;
+    }
+
+    /*if(this->nPadre!=NULL)
+        this->posY=this->nPadre->posY+150;*/
+}
+
 void Node::StayActualPosition()
 {
 
@@ -129,6 +169,9 @@ void Node::StayActualPosition()
         this->posY=this->padre->posY+150;
 
 }
+
+
+
 void Node::render( sf::RenderWindow *w)
 {
     sf::RenderWindow *window = w;
@@ -145,11 +188,14 @@ void Node::render( sf::RenderWindow *w)
         eDerecho->render(w);
 }
 
-void Node23::dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiquetaD){
+void Node23::dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiquetaD, Node23 *nodo){
+    StayActualPosition();
+    dibujarArista();
+
     //Inicializa la figura
     rectangulo.setFillColor(sf::Color::Blue);
     rectangulo.setSize(sf::Vector2f(100, 100));
-    rectangulo.setPosition(((screenWidth / 2)-10), (screenHeight - 738));
+    rectangulo.setPosition(nodo->posX, nodo->posY);
 
     //Inicializa la fuente
     fuente.loadFromFile("Marlboro.ttf");
@@ -158,23 +204,26 @@ void Node23::dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiqueta
     char chString[32];
     itoa(etiquetaI, chString, 10); //stdlib.h
     texto = sf::Text(chString,fuente);
-    //texto = sf::Text(":",fuente);
-    texto.setPosition(((screenWidth / 2) - 8),(screenHeight - 708));
+    texto.setPosition(nodo->posX, nodo->posY + 30);
     texto.setColor(sf::Color::White);
 
     window->draw(rectangulo);
     window->draw(texto);
 
     texto = sf::Text(":", fuente);
-    texto.setPosition(((screenWidth / 2) + 35), (screenHeight - 708));
+    texto.setPosition(nodo->posX + 45, nodo->posY + 30);
 
     window->draw(texto);
 
     itoa(etiquetaD, chString, 10);
     texto = sf::Text(chString, fuente);
-    texto.setPosition(((screenWidth / 2) + 60), (screenHeight - 708));
+    texto.setPosition(nodo->posX + 70, nodo->posY + 30);
 
     window->draw(texto);
+
+    this->eIzquierdo->render(window);
+    this->eCentro->render(window);
+    this->eDerecho->render(window);
 
 }
 
@@ -187,6 +236,19 @@ std::string Node::getTipoHijo()
         else
             return "izquierdo";
     }
+    return "raiz";
+}
+
+std::string Node23::getTipoHijo(){
+    if(this->nPadre != NULL){
+        if(this->nPadre->hijoIzq == this)
+            return "izquierdo";
+        else if(this->nPadre->hijoDer == this)
+            return "derecho";
+        else
+            return "centro";
+    }
+
     return "raiz";
 }
 

@@ -67,8 +67,10 @@ public:
     Edge *eCentro;
     Edge *eDerecho;
 
-    void dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiquetaD);
-    void actualizarAltura();
+    void dibujarNodo23(sf::RenderWindow *window, int etiquetaI, int etiquetaD, Node23 *nodo);
+    std::string getTipoHijo();
+    void StayActualPosition();
+    void dibujarArista();
 };
 
 #endif // NODE_H

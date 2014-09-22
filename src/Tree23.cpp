@@ -1,7 +1,11 @@
 #include "Tree23.h"
 #include <stdio.h>
+#include <math.h>
 
 using namespace std;
+
+static int screenWidth = 1360;
+static int screenHeight = 768;
 
 Tree23::Tree23(){
     altura = -1;
@@ -17,14 +21,17 @@ void Tree23::insertar(int n){
 
     if(altura < 0){
         raiz.val = n;
-        //strcpy(raiz.cadena,c);
         altura = 0;
+        raiz.posX = (screenWidth / 2) - 50;
+        raiz.posY = screenHeight - 738;
+        raiz.eIzquierdo = new Edge(0,0,0,0);
+        raiz.eCentro = new Edge(0,0,0,0);
+        raiz.eDerecho = new Edge(0,0,0,0);
         return;
     }
 
     nuevo = creaNodo();
     nuevo->val = n;
-    //strcpy(nuevo->cadena,c);
 
     if(altura == 0){
         aux = creaNodo();
@@ -32,8 +39,8 @@ void Tree23::insertar(int n){
         //strcpy(aux->cadena,raiz.cadena);
         raiz.val = 0;
         //strcpy(raiz.cadena,"");
-        raiz.hijoIzq = (aux->val >= nuevo->val?nuevo:aux);
-        raiz.hijoCen = (aux->val >= nuevo->val?aux:nuevo);
+        raiz.hijoIzq = (aux->val >= nuevo->val ? nuevo:aux);
+        raiz.hijoCen = (aux->val >= nuevo->val ? aux:nuevo);
         raiz.hijoDer = NULL;
         nuevo->nPadre = &raiz;
         aux->nPadre = &raiz;
@@ -68,7 +75,8 @@ void Tree23::insertar(int n){
         return;
     }
 
-    crearRama(nuevo), actEtiqs(&raiz);
+    crearRama(nuevo);
+    actEtiqs(&raiz);
 }
 
 Node23 *Tree23::creaNodo(){
@@ -77,6 +85,11 @@ Node23 *Tree23::creaNodo(){
     tmp->hijoIzq = NULL;
     tmp->hijoCen = NULL;
     tmp->hijoDer = NULL;
+
+    tmp->eIzquierdo = new Edge(0,0,0,0);
+    tmp->eCentro = new Edge(0,0,0,0);
+    tmp->eDerecho = new Edge(0,0,0,0);
+
     return tmp;
 }
 
@@ -252,11 +265,13 @@ Node23 *Tree23::buscar(int valor){
 
 void Tree23::dibujarArbol(sf::RenderWindow *window, Node23 *raiz){
 
+
     if(altura < 0)
         return;
 
-    if(altura == 0)
-        raiz->dibujarNodo23(window, raiz->val, -1);
+    /*if(altura == 0)
+        raiz->dibujarNodo23(window, raiz->val, -1, raiz);
+
 
     if(altura > 0){
 
@@ -267,21 +282,22 @@ void Tree23::dibujarArbol(sf::RenderWindow *window, Node23 *raiz){
         if(raiz->hijoDer != NULL)
             dibujarArbol(window, raiz->hijoDer);
 
-        raiz->dibujarNodo23(window, raiz->etiqIzq, raiz->etiqDer);
-    }
+        raiz->dibujarNodo23(window, raiz->etiqIzq, raiz->etiqDer, raiz);
+    }*/
 
 
-    /*if(raiz->hijoIzq){
-        raiz->dibujarNodo23(window, raiz->etiqIzq, raiz->etiqDer);
+    if(raiz->hijoIzq){
+        raiz->dibujarNodo23(window, raiz->etiqIzq, raiz->etiqDer, raiz);
         dibujarArbol(window, raiz->hijoIzq);
         dibujarArbol(window, raiz->hijoCen);
 
-        if(raiz->hijoDer)
+        if(raiz->hijoDer){
             dibujarArbol(window, raiz->hijoDer);
+        }
 
     }else{
-        raiz->dibujarNodo23(window, raiz->val, -1);
-    }*/
+        raiz->dibujarNodo23(window, raiz->val, -1, raiz);
+    }
 }
 
 Tree23::~Tree23(){

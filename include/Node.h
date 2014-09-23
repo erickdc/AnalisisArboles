@@ -37,8 +37,10 @@ class Node
         void StayActualPosition();
         void actualizarGrafico();
         void actualizarPosXAltura();
+        bool estaClick(sf::RenderWindow* w);
         std::string getTipoHijo();
-
+        void removeLeftChild();
+        void removeRightChild();
         virtual ~Node();
     protected:
     private:

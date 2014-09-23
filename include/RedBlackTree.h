@@ -14,7 +14,7 @@ class RedBlackTree
         Node *abuelo(Node *n);
         Node *tio(Node *n);
         Node *hermano(Node *n);
-
+        Node *hermano_menor(Node *n);
         void rotar_izquierda(Node *p);
         void rotar_derecha(Node *p);
 
@@ -27,18 +27,22 @@ class RedBlackTree
         void insercion_caso4(Node *n);
         void insercion_caso5(Node *n);
 
+        void  eliminarNodo(Node* n);
          void elimina_un_hijo(Node *n);
          void eliminar_caso1(Node *n);
          void eliminar_caso2(Node *n);
          void eliminar_caso3(Node *n);
-         void eliminar_cas4(Node *n);
+         void eliminar_caso4(Node *n);
          void eliminar_caso5(Node *n);
          void eliminar_caso6(Node *n);
 
+        void  reemplazar_nodo(Node *n, Node *hijo);
           bool es_hoja(Node *n);
 
           void render(sf::RenderWindow *w);
           void renderTree(sf::RenderWindow *w, Node*n);
+           void deleteTreeNode(sf::RenderWindow *w);
+            void deleteNode(sf::RenderWindow *w, Node*n);
         virtual ~RedBlackTree();
     protected:
     private:

@@ -20,7 +20,7 @@ int main()
     sf::String userInput;
 
     RedBlackTree tree;
-
+    window.setFramerateLimit(60);
     while (window.isOpen())
     {
         sf::Event event;
@@ -53,15 +53,9 @@ int main()
 //
         window.setView(view);
         window.clear(sf::Color::White);
-       /* if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-        {
-            sf::Vector2i position = sf::Mouse::getPosition(window);
 
-
-            if(bInsertar.sprite.getGlobalBounds().contains(position.x,position.y))
-                std::cout <<"Hit";
-        }*/
         tree.render(&window);
+        tree.deleteTreeNode(&window);
         numberEntered.render(&window);
         window.display();
     }

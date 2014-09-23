@@ -93,6 +93,15 @@ void Node::actualizarPosXAltura()
 {
     if(padre!=NULL)
         this->altura=this->padre->altura+1;
+    else{
+        this->altura =0;
+         this->posY=10;
+         this->posX=600;
+    }
+
+
+
+
     if(this->altura==1)
         this->posicionX=400;
     if(this->altura==2)
@@ -109,24 +118,25 @@ void Node::StayActualPosition()
 {
 
    std::string tipoHijo = getTipoHijo();
-
+    std::cout<<"TIPO:" <<tipoHijo;
     actualizarPosXAltura();
     if(tipoHijo.compare("derecho")==0)
-        this->posX = this->padre->posX+posicionX;
-    else if(tipoHijo.compare("izquierdo")==0)
-        this->posX = this->padre->posX-posicionX;
-    else{
-         if(this->posX<(screenWidth/2)-Node::radius)
-            this->posX+=0.9f;
-
-
-         if(this->posY>50.0f)
-            this->posY-=1.0f;
-         else
-            this->posY+=1.0f;
+    {
+        if(this->posX <this->padre->posX+posicionX)
+            this->posX += 2.0f;
     }
+
+    else if(tipoHijo.compare("izquierdo")==0)
+    {
+        if(  this->posX < this->padre->posX-posicionX)
+                this->posX += 2.0f;
+        else if(this->posX >this->padre->posX-posicionX)
+               this->posX -= 2.0f;
+    }
+
+
     if(this->padre!=NULL)
-        this->posY=this->padre->posY+150;
+        this->posY=this->padre->posY+100;
 
 }
 void Node::render( sf::RenderWindow *w)
@@ -149,12 +159,35 @@ std::string Node::getTipoHijo()
 {
     if(this->padre!=NULL)
     {
-        if(this->padre->derecho ==this)
-            return "derecho";
-        else
-            return "izquierdo";
+        return this->padre->derecho ==this?"derecho":"izquierdo";
     }
     return "raiz";
+}
+
+ bool Node::estaClick(sf::RenderWindow* w)
+ {
+      if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+            sf::Vector2i position = sf::Mouse::getPosition(*w);
+
+
+            if(this->circle.getGlobalBounds().contains(position.x,position.y))
+                return true;
+    }
+
+
+    return false;
+ }
+
+ void Node::removeLeftChild()
+ {
+     this->izquierdo= NULL;
+
+ }
+
+void Node::removeRightChild()
+{
+    this->derecho=NULL;
 }
 
 

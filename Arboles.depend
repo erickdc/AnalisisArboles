@@ -95,3 +95,57 @@
 1410250725 source:c:\users\erick\documents\github\arbolesrojosnegros2-3\src\screenmessage.cpp
 	"ScreenMessage.h"
 
+1410079049 source:c:\users\erick\documents\github\analisisarboles\src\button.cpp
+	"Button.h"
+
+1410079049 c:\users\erick\documents\github\analisisarboles\include\button.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1410307850 source:c:\users\erick\documents\github\analisisarboles\src\edge.cpp
+	"Edge.h"
+
+1410303334 c:\users\erick\documents\github\analisisarboles\include\edge.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+
+1411276994 source:c:\users\erick\documents\github\analisisarboles\src\main.cpp
+	"main.h"
+	"Node.h"
+	<SFML/Graphics.hpp>
+	"Edge.h"
+	"RedBlackTree.h"
+	"Button.h"
+
+1410372982 c:\users\erick\documents\github\analisisarboles\include\main.h
+	"ScreenMessage.h"
+
+1410250709 c:\users\erick\documents\github\analisisarboles\include\screenmessage.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
+
+1411279222 c:\users\erick\documents\github\analisisarboles\include\node.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
+	"Edge.h"
+
+1411276994 c:\users\erick\documents\github\analisisarboles\include\redblacktree.h
+	"Node.h"
+	"ScreenMessage.h"
+
+1411426680 source:c:\users\erick\documents\github\analisisarboles\src\redblacktree.cpp
+	"RedBlackTree.h"
+	"SFML/Audio.hpp"
+
+1410250725 source:c:\users\erick\documents\github\analisisarboles\src\screenmessage.cpp
+	"ScreenMessage.h"
+
+1411323568 source:c:\users\erick\documents\github\analisisarboles\src\node.cpp
+	"Node.h"
+	<iostream>
+	<stdlib.h>
+

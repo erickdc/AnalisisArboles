@@ -1,6 +1,8 @@
 #include "RedBlackTree.h"
+#include "SFML/Audio.hpp"
  static int screenWidth= 1360;
  static int screenHeight = 768 ;
+
 RedBlackTree::RedBlackTree()
 {
     this->raiz= NULL;
@@ -13,14 +15,57 @@ RedBlackTree::~RedBlackTree()
 {
     //dtor
 }
+
+void RedBlackTree::deleteTreeNode(sf::RenderWindow *w)
+{
+     if(raiz!=NULL)
+        deleteNode(w,raiz);
+
+}
+
+void RedBlackTree::deleteNode(sf::RenderWindow *w, Node*n)
+{
+      if(n->estaClick(w))
+      {
+
+         eliminarNodo(n);
+          return;
+
+      }
+
+      if(n->izquierdo!=NULL)
+      {
+
+        deleteNode(w,n->izquierdo);
+
+
+      }
+
+     if(n->derecho!=NULL)
+     {
+         deleteNode(w,n->derecho);
+     }
+
+}
  void RedBlackTree::renderTree(sf::RenderWindow *w, Node*n)
  {
-
+      if(n==NULL)
+        return;
       n->render(w);
+
       if(n->izquierdo!=NULL)
-         renderTree(w,n->izquierdo);
+      {
+
+        renderTree(w,n->izquierdo);
+
+
+      }
+
      if(n->derecho!=NULL)
+     {
          renderTree(w,n->derecho);
+     }
+
 
 
  }
@@ -62,13 +107,21 @@ Node *RedBlackTree::tio(Node *n)
 	else
 		return a->izquierdo;
 }
-Node *hermano(Node *n)
+Node *RedBlackTree::hermano(Node *n)
 {
 	if (n == n->padre->izquierdo)
 		return n->padre->derecho;
 	else
 		return n->padre->izquierdo;
 }
+
+Node *RedBlackTree::hermano_menor(Node *n)
+{
+	if (n == n->padre->izquierdo)
+		return n;
+	return n;
+}
+
 
  void RedBlackTree::rotar_izquierda(Node *p)
 {
@@ -163,6 +216,8 @@ void RedBlackTree::insercion_caso2(Node *n)
 {
     if(raiz->color=="ROJO")
         raiz->color="NEGRO";
+
+       this->message->setText("Red Node has black Children ");
 	if (n->padre->color == "NEGRO")
 		return; /* Árbol válido. */
 	else
@@ -173,6 +228,7 @@ void RedBlackTree::insercion_caso3(Node *n)
 {
 	Node *t = tio(n), *a;
 
+      this->message->setText("Recolor red Uncle,Father and Grandpa");
 	if ((t != NULL) && (t->color == "ROJO")) {
 		n->padre->color = "NEGRO";
 		t->color = "NEGRO";
@@ -218,10 +274,69 @@ void RedBlackTree::insercion_caso5(Node *n)
         return false;
      return true;
  }
-/*void RedBlackTree::elimina_un_hijo(Node *n)
+
+void  RedBlackTree::reemplazar_nodo(Node *n, Node *hijo)
 {
-	/*
-	 * Precondición: n tiene al menos un hijo no nulo.
+    hijo = n;
+
+
+
+}
+
+void RedBlackTree::eliminarNodo(Node* n)
+{
+
+   /* sf::SoundBuffer buffer;
+        buffer.loadFromFile("bang.aiff");*/
+
+    /*Node* actual=n;
+
+    if(raiz==NULL)
+    {
+        return;
+
+    }else if(n->padre==NULL && n->derecho==NULL && n->izquierdo==NULL)
+    {
+        raiz=NULL;
+        free(n);
+        return;
+    }else if(raiz->izquierdo == NULL && raiz->derecho!=NULL)
+    {
+
+
+
+
+         raiz = raiz->derecho;
+         actual->derecho =NULL;
+
+
+
+        delete actual;
+
+
+    }
+*/
+   /* if(n->derecho==NULL && n->izquierdo==NULL)
+    {
+        if(n->padre->izquierdo ==n)
+        {
+            n->padre->removeLeftChild();
+        }else
+        {
+            n->padre->removeRightChild();
+        }
+
+        free(n);
+        return;
+    }*/
+
+
+
+}
+void RedBlackTree::elimina_un_hijo(Node *n)
+{
+
+    eliminarNodo(n);
 
 	Node *hijo = es_hoja(n->derecho) ? n->izquierdo : n->derecho;
 
@@ -254,10 +369,10 @@ void RedBlackTree::eliminar_caso2(Node *n)
 	}
 	eliminar_caso3(n);
 }
-*/
+
 void RedBlackTree::eliminar_caso3(Node *n)
 {
-/*	Node *hm = hermano_menor(n);
+	Node *hm = hermano_menor(n);
 
 	if ((n->padre->color == "NEGRO") &&
 	 (hm->color == "NEGRO") &&
@@ -266,25 +381,24 @@ void RedBlackTree::eliminar_caso3(Node *n)
 		hm->color = "ROJO";
 		eliminar_caso1(n->padre);
 	} else
-		eliminar_caso4(n);*/
+		eliminar_caso4(n);
 }
 
-/*void RedBlackTree::eliminar_caso4(struct node *n)
+void RedBlackTree::eliminar_caso4(Node *n)
 {
 	Node *hm = hermano_menor(n);
 
 	if ((n->padre->color == "ROJO") &&
-	 (hm->color == NEGRO) &&
-	 (hm->izdo->color == NEGRO) &&
-	 (hm->dcho->color == NEGRO)) {
-		hm->color = ROJO;
-		n->padre->color = NEGRO;
+	 (hm->color == "NEGRO") &&
+	 (hm->izquierdo->color == "NEGRO") &&
+	 (hm->derecho->color == "NEGRO")) {
+		hm->color = "ROJO";
+		n->padre->color = "NEGRO";
 	} else
 		eliminar_caso5(n);
 }
 
-void
-eliminar_caso5(Node *n)
+void RedBlackTree::eliminar_caso5(Node *n)
 {
 	Node *hm = hermano(n);
 
@@ -313,17 +427,13 @@ void RedBlackTree::eliminar_caso6(Node *n)
 	hm->color = n->padre->color;
 	n->padre->color = "NEGRO";
 	if (n == n->padre->izquierdo) {
-		/*
-		 * Aquí, hm->dcho->color == ROJO.
-		 *//*
+
 		hm->derecho->color = "NEGRO";
 		rotar_izquierda(n->padre);
 	} else {
-		/*
-		 * Aquí, hm->izdo->color == ROJO.
-		 *//*
+
 		hm->izquierdo->color = "NEGRO";
 		rotar_derecha(n->padre);
 	}
 }
-*/
+
